@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <launch>
+
  <include file="$(find ublox_gps)/launch/ublox_device.launch">
   <arg name="node_name" value="ublox_gps"/>
   <arg name="param_file_name" value="zed-f9p"/>
@@ -9,5 +10,31 @@
   <arg name="respawn_delay" value="30"/>
   <arg name="clear_params" value="false"/>
  </include>
+ 
+ <include file="$(find ntrip_client)/launch/ntrip_client.launch">
+  <arg name="host"                   default = "RTS2.ngii.go.kr" />
+  <arg name="port"                   default = "2101" />
+  <arg name="mountpoint"             default = "VRS-RTCM31" />
+  <arg name="authenticate"           default = "true" />
+  <arg name="username"               default = "hunsucki1" />
+  <arg name="password"               default = "ngii" />
+  <arg name="ntrip_version"          default = "" />
+  <arg name="ssl"                    default = "false" />
+  <arg name="cert"                   default = "" />
+  <arg name="key"                    default = "" />
+  <arg name="ca_cert"                default = "" />
+  <arg name="debug"                  default = "false" />
+  <arg name="rtcm_message_package"   default = "rtcm_msgs" />
+ </include>
+ 
+<node name="ublox2nmea" pkg="ublox_utils" type="ublox2nmea"
+      output="screen"
+      clear_params="true"
+      respawn="true"
+      respawn_delay="30">
+    <remap from="/navpvt" to="/ublox_gps/navpvt"/>
+    <remap from="/nmea" to="/ublox_gps/nmea"/>
+</node> 
+ 
+ 
 </launch>
-
