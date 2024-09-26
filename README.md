@@ -1,3 +1,8 @@
+source from
+
+https://github.com/LORD-MicroStrain/ntrip_client?tab=License-1-ov-file
+https://github.com/ros-agriculture/ublox_f9p
+
 # ROS driver for ublox ZED-F9P receiver
 
 This is for the ArduSimple ZED-F9P boards. (Mainly affects which port on the board is being used.) I am connecting the F9P board to a Linux laptop with USB cable. (MovingBaseline requires connecting a single wire between two receiver boards.)
