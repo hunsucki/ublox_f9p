@@ -11,7 +11,7 @@
   <arg name="port"                   default = "2101" />
   <arg name="mountpoint"             default = "VRS-RTCM31" />
   <arg name="authenticate"           default = "true" />
-  <arg name="username"               default = "hunsucki1" />
+  <arg name="username"               default = "" />
   <arg name="password"               default = "ngii" />
   <arg name="ntrip_version"          default = "" />
   <arg name="ssl"                    default = "false" />
